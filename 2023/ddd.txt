@@ -1,0 +1,409 @@
+//Programa calcular imc
+#include<stdio.h>
+#include<windows.h>
+#include<locale.h>
+#include<math.h>
+main()
+	{	
+		setlocale(LC_ALL,"");
+		system("title calculo de indice de masa");
+		
+		char nombre[50];
+		double peso,estatura,imc;
+		printf("\n\t Calculo de indice de masa corporal");
+		printf("\n\t ******* ** ****** ** **** ********");
+		printf("\n\t Ingrese su nombre: ");
+		scanf ("%s",&nombre);
+		printf("\n\t Ingrese el peso en kilos: ");
+		scanf("%lf",&peso);
+		printf("\n\t Ingrese la estatura: ");
+		scanf("%lf",&estatura);
+		imc=peso/pow(estatura,2);
+		system("cls");
+		printf("\n\t Calculo de indice de masa corporal");
+		printf("\n\t ******* ** ****** ** **** ********");
+		printf("\n Nombre: %s"; nombre);
+		printf("\n El peso es:%.2lf",peso);
+		printf("\n La estatura es:%.2lf",estatura);
+		printf("\n El imc es :%.2lf",imc);
+		return 0;
+	}
+---------------------------------------------------------------------------------------------------------------------
+//Suma de dos numeros
+#include<stdio.h>
+main()
+	{
+		int num1, num2, suma;
+		printf("\n\tsuma de dos numeros");
+		printf("\n\t**** ** *** *******");
+		printf("\n\tIngrese el primer numero: ");
+		scanf("%d",&num1);
+		printf("\n\tIngrese el segundo numero: ");
+		scanf("%d",&num2);
+		suma=num1+num2;
+		printf("\nEl resultado de la suma es: %d",suma);
+		return 0;
+	}
+-----------------------------------------------------------------------------------------------------------------------
+/*Escriba un programa en lenguaje C que solicite el nombre de un empleado, sus horas trabajadas completas,su pago por hora,calcular el sueldo bruto.
+Al empleado se le deduce el 1.5% de RAP y IHSS asi : Si sueldo bruto es menor que 8000 paga el 5% del sueldo bruto de ihss sino paga L.400.00 Calcular el sueldo neto. 
+Limpie pantalla y muestre:Nombre,sueldobruto,ihss,rap,total deducciones y sueldo neto*/
+#include<windows.h>
+#include<stdio.h>
+#include<locale.h>
+main()
+	{
+		system("title Sueldo neto");
+		setlocale(LC_ALL,"");
+		
+		const double CRAP=0.015;
+		char nombre[30];
+		int horasT;
+		double pagoH,sueldoB,rap,ihss,totalD,sueldoN;
+		printf("\n\t Calculo de sueldo Neto");
+		printf("\n\t ******* ** ****** ****");
+		printf("\n Ingrese el nombre del empleado: ");
+		scanf ("%s",&nombre);
+		printf("\n Ingrese las horas trabajadas: ");
+		scanf("%d",&horasT);
+		printf("\n Ingrese el pago por hora: ");
+		scanf("%lf",pagoH);
+		
+		sueldoB=horasT*pagoH;
+		rap=sueldoB*CRAP;
+		/*if (sueldoB<8000)
+			ihss=sueldoB*0.05;
+		else
+			ihss=400;*/
+			ihss=(sueldoB<8000)?(400):(sueldoB*0.05);
+			
+		totalD=rap+ihss;
+		sueldoN=sueldoB-totalD;
+		system("cls");
+		printf("\n\t Calculo de sueldo Neto");
+		printf("\n\t ******* ** ****** ****");
+		printf("\n\t Empleado: %s",nombre);
+		printf("\n\t Sueldo bruto: %.2lf", sueldoB);
+		printf("\n\t Deduccion ihss: %.2lf",ihss);
+		printf("\n\t Deduccion RAP: %.2lf",rap);
+		printf("\n\t Total Deducciones: %.2lf",totalD);
+		printf("\n\t Sueldo Neto: %.2lf",sueldoN);
+		return 0;
+	}
+----------------------------------------------------------------------------------------------------------------
+//Programa de promedio
+#include<stdio.h>
+#include<windows.h>
+#include<locale.h>
+
+int main() 
+{	
+    setlocale(LC_ALL,"");
+    char * obs;
+    char * msj;
+	char nombre[50];
+    double nota1, nota2, nota3;
+    printf("\n\t Calculo de promedio");
+	printf("\n\t ******* ** ********");
+    printf("\n Ingrese su nombre: ");
+    //scanf("%s",&nombre);
+    //gets(nombre);
+    scanf("%[^\n]",&nombre);
+    printf("\n Ingrese la primera nota: ");
+    scanf("%lf", &nota1);
+    printf("\n Ingrese la segunda nota: ");
+    scanf("%lf", &nota2);
+    printf("\n Ingrese la tercera nota: ");
+    scanf("%lf", &nota3);
+
+    double promedio = (nota1 + nota2 + nota3)/3;
+    
+	printf("El promedio de las tres notas es: %.2lf\n", promedio);
+     
+    if(promedio>=70)
+    	obs="Aprobado";
+    else
+		obs="Reprobado";	
+	printf("\n El estudiante esta: %s",obs);	
+	if(promedio>=91 && promedio<=100)
+		msj="Excelente";
+	else
+		if(promedio>=80 && promedio<=91)
+			msj="Muy bueno";
+		else
+			if(promedio>=70 && promedio<=80)
+				msj="Bueno";
+			else
+				msj="Necesita mejorar";
+			
+				
+	printf("\n Estudiante %s",msj);
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------
+//Ejercicio switch meses
+#include<stdio.h>
+#include<locale.h>
+int main()
+{
+	setlocale(LC_ALL,"");
+	int nmes;
+	char*mes;
+	printf("\n\t Dia del mes");
+	printf("\n\t *** *** ***");
+	printf("\n\n Ingrese el numero del mes [1,12]:  ");
+	scanf("%d",&nmes);
+	
+	switch(nmes)
+	{
+		case 2:
+			mes="28 Dias";
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			mes="30 Dias";
+			break;
+		default:
+			mes="31 Dias";
+			break;		
+	}
+	printf("\n\n El mes %d tiene: %s ",nmes,mes);
+	return 0;
+}
+--------------------------------------------------------------------------------------------
+// Programa que Calcula el area de N triangulos 
+
+#include<stdio.h>
+#include<windows.h>
+#include<locale.h>
+main()
+  {
+  	setlocale(LC_ALL,"");
+    system("title Area de triángulo");
+	
+	float b,a,at;
+    char *resp;
+   	
+   	printf("\n Ingrese la cantidad de triangulos a calcular");
+   	scanf("%d",&numtri);
+	do
+	{
+    printf("\n\t Área de un Triángulo " );
+    printf("\n\t **** ** ** ********* \n " );  
+    
+    printf("\n Introduzca la base del triángulo: " ); 
+    scanf("%f", &b);
+   
+    printf("\n Introduzca la altura del triángulo: " ); 
+    scanf("%f", &a);
+   
+    at = (b*a)/2;
+    printf("\n El area del Triángulo es: %.2f \n\n",at  );
+    printf("\n Desea continuar [S\N]: ");
+    scanf("%s",&resp); //cuyo
+    system("cls");
+    
+    }
+    while(resp==’S’ ¦¦ resp==’s’ );
+      return 0;
+  }
+---------------------------------------------------------------------------------
+// Programa que Calcula el area de N triangulos 
+
+#include<stdio.h>
+#include<windows.h>
+#include<locale.h>
+main()
+  {
+  	setlocale(LC_ALL,"");
+    system("title Area de triángulo");
+	
+	float b,a,at;
+   	int contador = 0,numtri;
+   	
+   	printf("\n Ingrese la cantidad de triangulos a calcular");
+   	scanf("%d",&numtri);
+	do
+	{
+    printf("\n\t Área de un Triángulo " );
+    printf("\n\t **** ** ** ********* \n " );  
+    
+    printf("\n Introduzca la base del triángulo: " ); 
+    scanf("%f", &b);
+   
+    printf("\n Introduzca la altura del triángulo: " ); 
+    scanf("%f", &a);
+   
+    at = (b*a)/2;
+    printf("\n El area del Triángulo es: %.2f \n\n",at  );
+    contador = contador+1;
+    system("pause");//cuyo
+    system("cls");
+    
+    }
+    while(contador<numtri);
+      return 0;
+  }
+----------------------------------------------------------
+// Programa que Calcula el area de N triangulos con if error
+
+#include<stdio.h>
+#include<windows.h>
+#include<locale.h>
+main()
+  {
+  	setlocale(LC_ALL,"");
+    system("title Area de triángulo");
+	
+	float b,a,at;
+   	int contador = 0,numtri;
+   	do
+	   {
+   		printf("\n Ingrese la cantidad de triangulos a calcular");
+   		scanf("%d",&numtri);
+   		if(numtri<=0)
+   			printf("\n\t\a Error...Ingrese un numero positivo");
+   	   }
+   	while(numtri<=0);	
+	do
+	{
+    printf("\n\t Área de un Triángulo " );
+    printf("\n\t **** ** ** ********* \n " );  
+     	do
+	 	{
+      
+     		printf("\n Introduzca la base del triángulo: " ); 
+        	scanf("%f", &b);
+        	if(b<=0)
+     		printf("\n\t\a Error... Introduzca un numero positivo");
+     	}
+		while(b<=0);
+		   do
+		   {
+		    
+    		printf("\n Introduzca la altura del triángulo: " ); 
+    		scanf("%f", &a);
+			if(a<=0)
+     		printf("\n\t\a Error... Introduzca un numero positivo");
+		   }
+		   while(a<=0);	     
+    at = (b*a)/2;
+    printf("\n El area del Triángulo es: %.2f \n\n",at  );
+    contador = contador+1;
+    system("pause");//cuyo
+    system("cls");
+    
+    }
+    while(contador<numtri);
+      return 0;
+  }
+--------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <windows.h>
+#include <locale.h>
+main()
+	{
+		system("title Ciclo For");
+		setlocale(LC_ALL,"");
+		int i;
+		printf("\n\t Numero Cuadrado Cubo\n");
+		for(i=1;i<=10;i++)
+			{
+			  printf(" \n %4d %6d %6d",i, i*i,i*i*i ); 
+				
+			}
+		return 0;
+	}
+--------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+#include <windows.h>
+#include <locale.h>
+main()
+	{
+		system("title Ciclo For");
+		setlocale(LC_ALL,"");
+		int i;
+		printf("\n\t Numeros del 2 al 12\n");
+		for(i=2;i<=12;i=i+2)
+			{
+				printf(" %5d", i); 
+				
+			}
+		return 0;
+	}
+---------------------------------------------------------------------------------------------------------------------------
+/*Programa numeros divisibles entre 5 */
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<windows.h>
+
+#define fil 3
+#define col 4
+main()
+{
+	srand(time(NULL));
+	int matIng[fil][col],matAle[fil][col],suma[fil][col];
+	int i,j,acumDiv=0,prom;
+	
+	printf("\n Ingresando Datos a la matriz\n");
+	for (i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			do
+			{
+				printf("\n Ingrese un numero en la posicion [%d][%d]: ",i,j);
+				scanf("%d",&matIng[i][j]);
+				if(matIng[i][j]<10 ||matIng[i][j]>50)
+					printf("\n Error, Ingrese un numero entre 10 y 50");
+			}
+			while (matIng[i][j]<10 || matIng[i][j]>50);
+			matAle=15+rand()%46;
+			suma[i][j] = matIng[i][j] + matAle[i][j];
+		}	
+	}
+	system("cls");
+	printf("\n Matriz con datos ingresados\n");
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			printf("%5d",matIng[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n Matriz con datos Aleatorios\n");
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			printf("%5d",matAle[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n Matriz con datos sumados\n");
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			printf("%5d",suma[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n Numeros divisibles entre 5: \n");
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			if(suma[i][j]%5 == 0)
+				printf("%5d",suma[i][j]):
+				acumDiv += suma[i][j];
+		}
+	}
+	printf("La suma de los divisibles es: %d",acumDiv);
+	return 0;
+				
+}
