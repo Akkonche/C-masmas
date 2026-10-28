@@ -1,5 +1,3 @@
-/*Fernando Avila || Derek Lagos||Stefanny Flores ||Melissa Ramirez*/
-
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -98,7 +96,7 @@ int main ()
 			case 2:
 				if (colaVacia(frente)) 
 					{
-						printf("\n\t La cola est· vacÌa");
+						printf("\n\t La cola est√° vac√≠a");
 					} 
 				else 
 					{
@@ -117,7 +115,7 @@ int main ()
 			case 4:
 				if (colaVacia(frente)) 
 					{
-						printf("\n\t La cola est· vacÌa");
+						printf("\n\t La cola est√° vac√≠a");
 					} 
 				else 
 					{
@@ -137,7 +135,7 @@ int main ()
 				printf ("\n Gracias por usar el programa");
 				break;
 			default:
-				printf ("\n OpciÛn inv·lida");
+				printf ("\n Opci√≥n inv√°lida");
 				break;
 		}
 	} 
